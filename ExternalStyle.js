@@ -1,15 +1,15 @@
 import {StyleSheet} from 'react-native'
 export const ExternalStyle = StyleSheet.create({
     text:{
-        color:"red"
+        color:"#0059b3"
     },
     container : {
-        backgroundColor: "yellow",
-        margin:10,
+        flex:1,
+        backgroundColor: "#ffff4d",
+        margin:20,
         padding:10,
-        flex: 0.2,
-        alignItems:"center",
-        justifyContent: 'center',
+        // alignItems:"center",
+        // justifyContent: 'center',
     }
    
 })
