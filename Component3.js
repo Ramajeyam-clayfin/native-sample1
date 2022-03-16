@@ -1,16 +1,16 @@
 import { ScrollView, Text, StyleSheet, View, Button, TouchableHighlight } from "react-native"
 import { useState } from 'react';
 
-export const Component2 = () =>{
+export const Component3 = () =>{
     const [view, setView]= useState(false);
-    let text1= `Justify-Content : ${view? 'open' : 'closed'}`
+    let text1= `Align-Items : ${view? 'open' : 'closed'}`
     const Component2Style = StyleSheet.create({
         text:{
-            color:"#ff5c33",
+            color:"yellow",
         },
         container:{
             flex: 1,
-            backgroundColor:"#80bfff",
+            backgroundColor:"#ff9999",
             margin:20,
             padding:10,
         }
@@ -20,14 +20,14 @@ export const Component2 = () =>{
         <View style={Component2Style.container}>
             
         <View >
-            <Text style={Component2Style.text}>This is Component 2 </Text>
+            <Text style={Component2Style.text}>This is Component 3 </Text>
             
         </View>
        
         <View style={{flex:1, backgroundColor:'white'}}>
             
             <Button title={text1} onPress={()=>setView(!view)}/>
-            { view ? <Justifycontent1/> : null }
+            { view ? <Alignitems/> : null }
                
             </View>
         </View>
@@ -35,26 +35,27 @@ export const Component2 = () =>{
 
 }
 
-const Justifycontent1 =()=>{
-    const [justify, setjustify]= useState('flex-start');
+const Alignitems =()=>{
+    const [alignitem, setalignitem]= useState('flex-start');
 
     return(
         <View style={{flex:1, margin:10,}}>
-            <View style={{flex:1, flexDirection:"row"}}>
+           <View style={{flex:1, flexDirection:"row"}}>
+
                 <View style={{flex:1, margin:5}}>
-                    <TouchableHighlight style={styles.button} onPress={()=>setjustify("flex-start")}>
+                    <TouchableHighlight style={styles.button} onPress={()=>setalignitem("flex-start")}>
                         <Text style={styles.textContainer}>Start</Text>
                     </TouchableHighlight>
                 </View>
         
                 <View style={{flex:1,  margin:5}}>
-                    <TouchableHighlight style={styles.button} onPress={()=>setjustify("center")}>
+                    <TouchableHighlight style={styles.button} onPress={()=>setalignitem("center")}>
                         <Text style={styles.textContainer}>Center</Text>
                     </TouchableHighlight>
                 </View>
         
                 <View style={{flex:1,  margin:5}}>
-                    <TouchableHighlight style={styles.button} onPress={()=>setjustify("flex-end")}>
+                    <TouchableHighlight style={styles.button} onPress={()=>setalignitem("flex-end")}>
                         <Text style={styles.textContainer}>End</Text>
                     </TouchableHighlight>
                 </View>
@@ -62,26 +63,20 @@ const Justifycontent1 =()=>{
             <View style={{flex:1, flexDirection:"row"}}>
         
                 <View style={{flex:1,  margin:5}}>
-                    <TouchableHighlight style={styles.button} onPress={()=>setjustify("space-between")}>
-                        <Text style={styles.textContainer}>Space Between</Text>
+                    <TouchableHighlight style={styles.button} onPress={()=>setalignitem("stretch")}>
+                        <Text style={styles.textContainer}>Stretch</Text>
                     </TouchableHighlight>
                 </View>
 
                 <View style={{flex:1,  margin:5}}>
-                    <TouchableHighlight style={styles.button}  onPress={()=>setjustify("space-around")}>
-                        <Text style={styles.textContainer}>Space Around</Text>
-                    </TouchableHighlight>
-                </View>
-
-                <View style={{flex:1,  margin:5}}>
-                    <TouchableHighlight style={styles.button} onPress={()=>setjustify("space-evenly")}>
-                        <Text style={styles.textContainer}>Space Evenly</Text>
+                    <TouchableHighlight style={styles.button}  onPress={()=>setalignitem("baseline")}>
+                        <Text style={styles.textContainer}>Baseline</Text>
                     </TouchableHighlight>
                 </View>
             </View>
             {/* {console.log(justify)} */}
         
-            <View  style={{flex:1, justifyContent: justify, margin: 20, flexDirection: "row",  alignContent:"center", borderWidth:2 }}>
+            <View  style={{flex:1, alignItems: alignitem, margin: 20, flexDirection: "column",   borderWidth:2 }}>
     
                 <View style={{height:50, width:50, backgroundColor: 'red'}}> 
                     <Text style={styles.text}>R</Text>
@@ -91,7 +86,7 @@ const Justifycontent1 =()=>{
                     <Text style={styles.text}>B</Text>
                 </View>
 
-                <View style={{height:50, width:50, backgroundColor: 'green'}}>
+                <View style={{  backgroundColor: 'green'}}>
                     <Text style={styles.text}>G</Text>
                 </View>
             </View>
@@ -101,19 +96,18 @@ const Justifycontent1 =()=>{
 
 const styles = {
     textContainer: {
-      fontSize: 10,
+      fontSize: 15,
+      fontWeight: "100",
       color:"black"
-      
     },
     button:{
         alignItems:"center",
         padding: 10,
-        backgroundColor: "#80bfff",
+        backgroundColor:"#ff9999",
         height:40
     },
     text : {
         color:"white",
-        fontSize:20,
-        fontWeight: "100",
+        fontSize:20
       }
   };
